@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+:root {
+    --azul_principal: #3B91F5;
+    --azul_botao: #4A9BF5;
+    --branco: #FFFFFF;
+    --texto_principal: #334155;
+    --texto_secundario: #64748B;
+    --preto: #000000;
+    --fundo_secundario: #F8FAFC;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fundo_secundario);
+    margin: 0;
+    padding: 0;
+}
+
+h2, p {
+    margin: 5px;
+}
+
+
+header {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: var(--preto);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: var(--azul_principal);
+}
+
+.caixa_cadastro {
+    background-color: var(--branco);
+    width: 60%;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.textos {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: var(--texto_principal);
+    font-size: 14px;
+}
+
+input {
+    width: 95%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid var(--texto_secundario);
+    margin: auto; 
+}
+
+.parte_forms {
+    margin-top: 20px;
+}
+
+button {
+    background-color: var(--azul_botao);
+    color: var(--branco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.campo {
+    margin: auto;
+}

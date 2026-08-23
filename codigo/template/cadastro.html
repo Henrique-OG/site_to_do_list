@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="../static/imagens/logo_site.png" alt="Logo da To-do List">
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Recursos</a>
+            <a href="#">Sobre</a>
+            <a href="#">Entrar</a>
+        </nav>
+    </header>
+
+    <section class="caixa_cadastro">
+        <div class="textos">
+            <h2>Criar conta</h2>
+            <p>Preencha os dados abaixo para se cadastrar</p>
+        </div>
+        <div class="parte_forms">
+            <form action="/cadastro" method="POST">
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                </div>
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
