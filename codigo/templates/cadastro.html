@@ -19,14 +19,15 @@
 
     <section class="caixa_cadastro">
         <div class="textos">
+            <img src="../static/imagens/logo_pessoa.png" alt="Logo pessoa">
             <h2>Criar conta</h2>
             <p>Preencha os dados abaixo para se cadastrar</p>
         </div>
         <div class="parte_forms">
             <form action="/cadastro" method="POST">
                 <div class="campo">
-                    <label for="nome">Nome completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    <label for="nome">Nome de usuário</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário" required>
                 </div>
                 <div class="campo">
                     <label for="email">Email</label>
@@ -36,8 +37,16 @@
                     <label for="senha">Senha</label>
                     <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
                 </div>
-                <button type="submit">Cadastrar</button>
+                <div class="campo_botao">
+                    <button type="submit">Cadastrar</button>
+                </div>
             </form>
+        </div>
+        <div class="textos">
+            {% if erro %}
+            <p class="erro">{{ erro }}</p>
+            {% endif %}
+            <p>Já possui uma conta? <a href="{{url_for('usuarios.login')}}">Faça login</a></p>
         </div>
     </section>
 </body>

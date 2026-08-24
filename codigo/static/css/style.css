@@ -43,9 +43,12 @@ nav a:hover {
 
 .caixa_cadastro {
     background-color: var(--branco);
-    width: 60%;
+    width: 50%;
     padding: 20px;
     margin: 20px auto;
+    border-radius: 7px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
 }
 
 .textos {
@@ -81,6 +84,26 @@ button {
     margin-top: 20px;
 }
 
-.campo {
+.campo_botao {
     margin: auto;
+    text-align: center;
+}
+
+button:hover {
+    background-color: var(--azul_principal);
+    cursor: pointer;
+}
+
+.textos a {
+    text-decoration: none;
+}
+
+.textos a:hover {
+    color: var(--azul_principal);
+}
+
+.erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
 }
