@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, Blueprint
+from flask import render_template, request, redirect, session, url_for, Blueprint
 from models import Usuarios
 from extentions import db
 
@@ -25,8 +25,22 @@ def cadastro():
         db.session.add(novo_usuario)
         db.session.commit()
 
+        return redirect(url_for('usuarios.login'))
+
     return render_template('cadastro.html')
 
 @usuarios_bp.route('/login', methods=['GET', 'POST'])
 def login():
+
+    if request.method == 'POST':
+        nome = request.form['nome']
+        senha = request.form['senha']
+        usuario = Usuarios.query.filter_by(nome_usuario=nome).first()
+
+        if usuario and usuario.senha_usuario == senha:
+            session['usuario_id'] = usuario.id
+            return redirect(url_for('tarefas.tarefas'))
+        else:
+            return render_template('login.html', erro='Nome de usuário ou senha incorretos.')
+
     return render_template('login.html')

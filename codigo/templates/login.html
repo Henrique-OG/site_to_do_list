@@ -16,4 +16,33 @@
             <a href="#">Entrar</a>
         </nav>
     </header>
+
+    <section class="caixa_login">
+        <div class="textos">
+            <img src="../static/imagens/logo_pessoa.png" alt="Logo pessoa">
+            <h2>Login</h2>
+            <p>Preencha os dados abaixo para entrar na sua conta</p>
+        </div>
+        <div class="parte_forms">
+            <form action="/login" method="POST">
+                <div class="campo">
+                    <label for="nome">Nome de Usuário</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário" required>
+                </div>
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <div class="campo_botao">
+                    <button type="submit">Entrar</button>
+                </div>
+            </form>
+        </div>
+        <div class="textos">
+            {% if erro %}
+                <p class="erro">{{ erro }}</p>
+            {% endif %}
+            <p>Não tem uma conta? <a href="{{ url_for('usuarios.cadastro') }}">Cadastre-se</a></p>
+        </div>
+    </section>
 </body>

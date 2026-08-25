@@ -21,6 +21,17 @@ h2, p {
     margin: 5px;
 }
 
+h1 {
+    color: var(--texto_principal);
+    font-size: 30px;
+    margin: 10px 5px;
+}
+
+p {
+    font-size: 19px;
+    color: var(--texto_secundario);
+}
+
 
 header {
     background-color: var(--branco);
@@ -53,6 +64,7 @@ nav a:hover {
 
 .textos {
     text-align: center;
+    margin-top: 20px;
 }
 
 label {
@@ -106,4 +118,39 @@ button:hover {
     color: red;
     font-size: 14px;
     margin-top: 10px;
+}
+
+.caixa_login {
+    background-color: var(--branco);
+    width: 50%;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 7px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.botao {
+    background-color: var(--azul_botao);
+    color: var(--branco);
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--azul_principal);
+    text-decoration: none;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.opcoes {
+    margin:auto 0;
+}
+
+.botao:hover {
+    background-color: var(--azul_principal);
 }

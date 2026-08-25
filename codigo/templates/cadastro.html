@@ -24,7 +24,7 @@
             <p>Preencha os dados abaixo para se cadastrar</p>
         </div>
         <div class="parte_forms">
-            <form action="/cadastro" method="POST">
+            <form action="{{url_for('usuarios.cadastro')}}" method="POST">
                 <div class="campo">
                     <label for="nome">Nome de usuário</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário" required>

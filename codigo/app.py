@@ -1,6 +1,7 @@
 from flask import Flask
 
 app = Flask(__name__)
+app.secret_key = 'Yeshua'  # Chave secreta para sessões
 
 from config import Config
 from extentions import db
@@ -9,7 +10,9 @@ db.init_app(app)
 
 from models import *
 from routes.usuarios import usuarios_bp
+from routes.tarefas import tarefas_bp
 app.register_blueprint(usuarios_bp)
+app.register_blueprint(tarefas_bp)
 
 with app.app_context():
     db.create_all()

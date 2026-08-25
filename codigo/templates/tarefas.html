@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do List</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <section class="cabecalho">
+        <div class="texto">
+            <h1>Minhas Tarefas</h1>
+            <p>Organiuze seu dia e aumente sua produtividade!</p>
+        </div>
+        <div class="opcoes">
+            <a class="botao" href="{{ url_for('tarefas.adicionar_tarefa') }}">Adicionar Tarefa</a>
+            <a class="botao" href="{{ url_for('usuarios.logout') }}">Sair</a>
+        </div>
+    </section>
+    <section class="tarefas">
+        
+    </section>
+</body>
+</html>
