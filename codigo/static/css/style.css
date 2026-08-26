@@ -69,9 +69,9 @@ nav a:hover {
 
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin: 20px 0 5px;
     color: var(--texto_principal);
-    font-size: 14px;
+    font-size: 18px;
 }
 
 input {
@@ -79,7 +79,8 @@ input {
     padding: 10px 5px;
     border-radius: 5px;
     border: 1px solid var(--texto_secundario);
-    margin: auto; 
+    margin: 10px auto; 
+    font-size: 16px;
 }
 
 .parte_forms {
@@ -153,4 +154,45 @@ button:hover {
 
 .botao:hover {
     background-color: var(--azul_principal);
+}
+
+.caixa_tarefas {
+    background-color: var(--branco);
+    width: 50%;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 7px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+
+.textos_add_tarefas {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.conteiner {
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.tarefas {
+    max-width: 1200px;
+    width: 90%;
+    padding: 10px;
+    background-color: var(--branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.linha_tarefa {
+    width: 95%;
+    border-radius: 8px;
+    border: solid 1px var(--texto_secundario);
+    margin: 10px auto;
 }

@@ -8,17 +8,31 @@
 </head>
 <body>
     <section class="cabecalho">
-        <div class="texto">
-            <h1>Minhas Tarefas</h1>
-            <p>Organiuze seu dia e aumente sua produtividade!</p>
-        </div>
-        <div class="opcoes">
-            <a class="botao" href="{{ url_for('tarefas.adicionar_tarefa') }}">Adicionar Tarefa</a>
-            <a class="botao" href="{{ url_for('usuarios.logout') }}">Sair</a>
+        <div class="conteiner">
+            <div class="texto">
+                <h1>Minhas Tarefas</h1>
+                <p>Organiuze seu dia e aumente sua produtividade!</p>
+            </div>
+            <div class="opcoes">
+                <a class="botao" href="{{ url_for('tarefas.adicionar_tarefa') }}">Adicionar Tarefa</a>
+                <a class="botao" href="{{ url_for('usuarios.logout') }}">Sair</a>
+            </div>
         </div>
     </section>
-    <section class="tarefas">
-        
+    <section class="tarefas_usuario">
+        <div class="tarefas">
+            {% if tarefas %}
+                {% for tarefa in tarefas %}
+                    <div class="linha_tarefa">
+                        <p>{{tarefa.tarefa}}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="linha_tarefa">
+                    <p>Sem tarefas</p>
+                </div>
+            {% endif %}        
+        </div>
     </section>
 </body>
 </html>

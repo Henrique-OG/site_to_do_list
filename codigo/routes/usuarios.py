@@ -44,3 +44,8 @@ def login():
             return render_template('login.html', erro='Nome de usuário ou senha incorretos.')
 
     return render_template('login.html')
+
+@usuarios_bp.route('/logout')
+def logout():
+    session.pop('usuario_id', None)
+    return redirect(url_for('usuarios.login'))
