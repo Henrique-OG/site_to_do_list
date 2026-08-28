@@ -37,3 +37,14 @@ def adicionar_tarefa():
         return redirect(url_for('tarefas.tarefas'))
 
     return render_template('adicionar_tarefa.html')
+
+@tarefas_bp.route('/excluir_tarefa/<int:id>')
+def excluir_tarefa(id):
+    if "usuario_id" not in session:
+        return redirect(url_for('usuarios.login'))
+
+    tarefa = Tarefas.query.get(id)
+    db.session.delete(tarefa)
+    db.session.commit() 
+
+    return redirect(url_for('tarefas.tarefas'))

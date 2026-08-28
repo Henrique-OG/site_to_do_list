@@ -24,12 +24,20 @@
             {% if tarefas %}
                 {% for tarefa in tarefas %}
                     <div class="linha_tarefa">
-                        <p>{{tarefa.tarefa}}</p>
+                        <div class="texto_tarefa">
+                            <p>{{tarefa.tarefa}}</p>
+                        </div>
+                        <div class="opcoes_tarefa">
+                            <a class="editar" href="#">Editar</a>
+                            <a class="excluir" href="{{url_for('tarefas.excluir_tarefa', id = tarefa.id)}}">Excluir</a>
+                        </div>
                     </div>
                 {% endfor %}
             {% else %}
                 <div class="linha_tarefa">
-                    <p>Sem tarefas</p>
+                    <div class="texto_tarefa">
+                        <p>Sem tarefas</p>
+                    </div>
                 </div>
             {% endif %}        
         </div>

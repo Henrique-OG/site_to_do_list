@@ -192,7 +192,40 @@ button:hover {
 
 .linha_tarefa {
     width: 95%;
+    padding: 10px;
     border-radius: 8px;
     border: solid 1px var(--texto_secundario);
     margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
 }
+
+.textos_tarefa {
+    width: 50%;
+}
+
+.opcoes_tarefa {
+    margin: auto 10px;
+}
+
+.editar, .excluir {
+    text-decoration: none;
+    color: var(--fundo_secundario);
+    background-color: var(--azul_botao);
+    padding: 7px;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+.excluir {
+    background-color: rgb(226, 2, 2);
+}
+
+.editar:hover {
+    background-color: var(--azul_principal);
+}
+
+.excluir:hover {
+    background-color: rgb(207, 4, 4);
+}
+
