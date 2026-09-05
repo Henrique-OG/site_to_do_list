@@ -43,8 +43,31 @@ def excluir_tarefa(id):
     if "usuario_id" not in session:
         return redirect(url_for('usuarios.login'))
 
+    usuario_id = session['usuario_id']
     tarefa = Tarefas.query.get(id)
-    db.session.delete(tarefa)
-    db.session.commit() 
+    if usuario_id == tarefa.usuario_id:
+        db.session.delete(tarefa)
+        db.session.commit() 
+    else:
+        return redirect(url_for('tarefas.tarefas'))
 
     return redirect(url_for('tarefas.tarefas'))
+
+@tarefas_bp.route('/editar_tarefa/<int:id>', methods=['GET', 'POST'])
+def editar_tarefa(id):
+    if "usuario_id" not in session:
+        return redirect(url_for('usuarios.login'))
+
+    usuario_id = session['usuario_id']
+    tarefa = Tarefas.query.get(id)
+    if usuario_id != tarefa.usuario_id:
+        return redirect(url_for('tarefas.tarefas'))
+    
+
+    if request.method == 'POST':
+        tarefa.tarefa = request.form['tarefa']
+        tarefa.data = datetime.strptime(request.form['data'], "%Y-%m-%d").date()
+        db.session.commit()
+        return redirect(url_for('tarefas.tarefas'))
+
+    return render_template('editar_tarefa.html', tarefa=tarefa)

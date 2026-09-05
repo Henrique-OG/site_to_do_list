@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <section class="caixa_tarefas">
+        <div class="textos_add_tarefas">
+            <div class="texto">
+                <h2>Editar tarefa</h2>
+            </div>
+            <a href="{{ url_for('tarefas.tarefas') }}" class="botao">Voltar</a>
+        </div>
+        <div class="parte_forms">
+            <form action="{{url_for('tarefas.editar_tarefa', id=tarefa.id)}}  "method="POST">
+                <div class="campo">
+                    <label for="tarefa">Nome da tarefa</label>
+                    <input type="text" id="tarefa" name="tarefa" placeholder="digite o nome da tarefa" required value="{{ tarefa.tarefa }}">
+                </div>
+                <div class="campo">
+                    <label for="data">Digite a data</label>
+                    <input type="date" id="data" name="data" required value="{{ tarefa.data }}">
+                </div>
+                <div class="campo_botao">
+                    <button type="submit">Salvar tarefa</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

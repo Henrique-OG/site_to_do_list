@@ -206,6 +206,7 @@ button:hover {
 
 .opcoes_tarefa {
     margin: auto 10px;
+    display: flex;
 }
 
 .editar, .excluir {
@@ -221,6 +222,16 @@ button:hover {
     background-color: rgb(226, 2, 2);
 }
 
+.data_tarefa {
+    margin-right: 10px;
+}
+
+.data_tarefa p {
+    color: var(--preto);
+    font-size: 18px;
+    padding: 3px;
+}
+
 .editar:hover {
     background-color: var(--azul_principal);
 }
@@ -229,3 +240,26 @@ button:hover {
     background-color: rgb(207, 4, 4);
 }
 
+.filtro {
+    display: flex;
+    gap: 10px;
+    margin: 15px;
+}
+
+.filtro_tarefas {
+    text-decoration: none;
+    color: var(--azul_principal);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--azul_principal);
+}
+
+.filtro_tarefas:hover {
+    background-color: var(--azul_principal);
+    color: var(--branco);
+}
+
+.filtro_tarefas:active {
+    background-color: var(--azul_principal);
+    color: var(--branco);
+}
