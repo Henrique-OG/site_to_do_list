@@ -22,21 +22,29 @@
     <section class="tarefas_usuario">
         <div class="tarefas">
             <div class="filtro">
-                <a class="filtro_tarefas" href="#">Todas</a>
-                <a class="filtro_tarefas" href="#">Pendentes</a>
-                <a class="filtro_tarefas" href="#">Concluídas</a>
+                <a class="filtro_tarefas" href="{{url_for('tarefas.tarefas', filtro='todos')}}">Todas</a>
+                <a class="filtro_tarefas" href="{{url_for('tarefas.tarefas', filtro='pendentes')}}">Pendentes</a>
+                <a class="filtro_tarefas" href="{{url_for('tarefas.tarefas', filtro='concluidas')}}">Concluídas</a>
             </div>
             {% if tarefas %}
                 {% for tarefa in tarefas %}
                     <div class="linha_tarefa">
                         <div class="texto_tarefa">
                             <div class="data_tarefa">
+                                {% if tarefa.estado == 'pendente' %}
+                                    <form action="{{url_for('tarefas.concluir_tarefa', id = tarefa.id)}}" method="post" class="form_concluir">
+                                        <button class="botao_concluir" type="submit"></button>
+                                    </form>
+                                {% else %}
+                                    <form action="{{url_for('tarefas.concluir_tarefa', id = tarefa.id)}}" method="post" class="form_concluir">
+                                        <button class="botao_concluida" type="submit">/</button>
+                                    </form>
+                                {% endif %}
                                 <p>{{tarefa.data}}</p>
                             </div>
                             <p>{{tarefa.tarefa}}</p>
                         </div>
                         <div class="opcoes_tarefa">
-                            
                             <a class="editar" href="{{url_for('tarefas.editar_tarefa', id = tarefa.id)}}">Editar</a>
                             <a class="excluir" href="{{url_for('tarefas.excluir_tarefa', id = tarefa.id)}}">Excluir</a>
                         </div>

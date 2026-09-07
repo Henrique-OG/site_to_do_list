@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, session, url_for, Blueprin
 from models import Tarefas
 from extentions import db
 from datetime import datetime
+from sqlalchemy import case
 
 tarefas_bp = Blueprint('tarefas', __name__)
 
@@ -10,7 +11,18 @@ def tarefas():
     if "usuario_id" not in session:
         return redirect(url_for('usuarios.login'))
     usuario_id = session["usuario_id"]
-    tarefas = Tarefas.query.filter_by(usuario_id = usuario_id).all()
+    filtro = request.args.get('filtro')
+    if filtro == 'pendentes':
+        tarefas = Tarefas.query.filter_by(usuario_id = usuario_id, estado='pendente').all()
+    elif filtro == 'concluidas':
+        tarefas = Tarefas.query.filter_by(usuario_id = usuario_id, estado='concluida').all()
+    else:
+        tarefas = Tarefas.query.filter_by(usuario_id = usuario_id).order_by(
+            case(
+                (Tarefas.estado == 'pendente', 1),
+                (Tarefas.estado == 'concluida', 2)
+            )
+        ).all()
     
     return render_template('tarefas.html', tarefas=tarefas)
 
@@ -71,3 +83,22 @@ def editar_tarefa(id):
         return redirect(url_for('tarefas.tarefas'))
 
     return render_template('editar_tarefa.html', tarefa=tarefa)
+
+@tarefas_bp.route('/concluir_tarefa/<int:id>', methods=['POST'])
+def concluir_tarefa(id):
+    if "usuario_id" not in session:
+        return redirect(url_for('usuarios.login'))
+
+    usuario_id = session['usuario_id']
+    tarefa = Tarefas.query.get(id)
+    if usuario_id == tarefa.usuario_id:
+        if tarefa.estado == 'pendente':
+            tarefa.estado = 'concluida'
+            db.session.commit()
+        else:
+            tarefa.estado = 'pendente'
+            db.session.commit()
+    else:
+        return redirect(url_for('tarefas.tarefas'))
+
+    return redirect(url_for('tarefas.tarefas'))

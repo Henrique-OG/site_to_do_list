@@ -201,7 +201,7 @@ button:hover {
 }
 
 .textos_tarefa {
-    width: 50%;
+    width: 70%;
 }
 
 .opcoes_tarefa {
@@ -223,8 +223,11 @@ button:hover {
 }
 
 .data_tarefa {
-    margin-right: 10px;
+    display: flex;
+    gap: 0px; 
+    width: 100%;
 }
+
 
 .data_tarefa p {
     color: var(--preto);
@@ -262,4 +265,21 @@ button:hover {
 .filtro_tarefas:active {
     background-color: var(--azul_principal);
     color: var(--branco);
+}
+
+.botao_concluir, .botao_concluida {
+    border: 1px solid var(--azul_principal);
+    background-color: var(--branco);
+    padding: 0px;
+    margin: auto 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.form_concluir {
+    margin: auto 0;
+}
+
+.botao_concluida {
+    background-color: var(--azul_principal);
 }
