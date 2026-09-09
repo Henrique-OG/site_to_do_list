@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="../static/imagens/logo_site.png" alt="Logo da To-do List">
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Sobre</a>
+            <a href="#">Entrar</a>
+        </nav>
+    </header>
+    
+    <section class="conteudo_principal">
+        <div class="conteiner">
+            <div class="conteudo">
+                <div class="texto_conteudo">
+                    <h1>Bem-vindo à To-do List</h1>
+                    <p>Organize suas tarefas de forma simples e eficiente.</p>
+                </div>
+                <div class="botao_espaco">
+                    <a class="botao_conteudo" href="{{ url_for('usuarios.cadastro') }}">Começar agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards">
+        <div class="conteiner">
+            <div class="card">
+                <div class="imagem_card">
+                    <img src="../static/imagens/raio.png" alt="Ícone de organização">
+                </div>
+                <div class="texto_card">
+                    <h2>Simples de usar</h2>
+                    <p>interface intuitiva e fácil de entender. Organize suas tarefas em poucos cliques.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="imagem_card">
+                    <img src="../static/imagens/cadeado.png" alt="Ícone de segurança">
+                </div>
+                <div class="texto_card">
+                    <h2>Seguro</h2>
+                    <p>Seus dados estão protegidos com tecnologia moderna e confiável.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="imagem_card">
+                    <img src="../static/imagens/imagem_to_do.png" alt="Ícone de segurança">
+                </div>
+                <div class="texto_card">
+                    <h2>Organização</h2>
+                    <p>Mantenha suas tarefas em ordem e alcance seus objetivos com mais facilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
