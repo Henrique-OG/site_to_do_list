@@ -11,8 +11,10 @@ db.init_app(app)
 from models import *
 from routes.usuarios import usuarios_bp
 from routes.tarefas import tarefas_bp
+from routes.apresentacao import apresentacao_bp
 app.register_blueprint(usuarios_bp)
 app.register_blueprint(tarefas_bp)
+app.register_blueprint(apresentacao_bp)
 
 with app.app_context():
     db.create_all()

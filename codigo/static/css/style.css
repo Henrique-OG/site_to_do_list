@@ -284,6 +284,7 @@ button:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
+    max-width: 1200px;
 }
 
 .conteudo {
@@ -326,7 +327,7 @@ button:hover {
 
 .card {
     display: flex;
-    width: 85%;
+    width: 87%;
     border-radius: 10px;
     margin: 10px auto;
     border: 1px solid var(--azul_botao);
@@ -347,4 +348,45 @@ button:hover {
 
 .card:hover {
     border: 2px solid var(--azul_principal);
+}
+
+.texto_sobre{
+    width: 80%;
+    margin: auto;
+}
+
+.texto_sobre h1 {
+    font-size: 26px;
+    color: var(--texto_principal);
+}
+
+.texto_sobre p {
+    font-size: 16px;
+    color: var(--texto_secundario);
+    line-height: 1.5;
+}
+
+.objetivo {
+    margin: 50px auto 0 auto;
+    width: 90%;
+}
+
+.linha {
+    width: 30%;
+    height: 2px;
+    background-color: var(--azul_principal);
+    margin: 10px 0;
+}
+
+.texto_objetivo h2{
+    margin: 40px 0 10px 0;
+    font-size: 22px;
+    color: var(--texto_principal);
+}
+
+.texto_objetivo p {
+    font-size: 16px;
+    color: var(--texto_secundario);
+    line-height: 1.5;
+    margin-top: 20px;
 }

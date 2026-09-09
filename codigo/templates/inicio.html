@@ -10,9 +10,9 @@
     <header>
         <img src="../static/imagens/logo_site.png" alt="Logo da To-do List">
         <nav>
-            <a href="#">Início</a>
-            <a href="#">Sobre</a>
-            <a href="#">Entrar</a>
+            <a href="{{ url_for('apresentacao.apresentacao') }}">Início</a>
+            <a href="{{ url_for('apresentacao.sobre') }}">Sobre</a>
+            <a href="{{ url_for('usuarios.login') }}">Entrar</a>
         </nav>
     </header>
     

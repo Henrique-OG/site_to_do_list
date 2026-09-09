@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="../static/imagens/logo_site.png" alt="Logo da To-do List">
+        <nav>
+            <a href="{{ url_for('apresentacao.apresentacao') }}">Início</a>
+            <a href="{{ url_for('apresentacao.sobre') }}">Sobre</a>
+            <a href="{{ url_for('usuarios.login') }}">Entrar</a>
+        </nav>
+    </header>
+    
+    <section class="conteudo_principal">
+        <div class="conteiner">
+            <div class="conteudo">
+                <div class="texto_sobre">
+                    <h1>Este projeto foi criado para colocar meus conhecimentos em prática</h1>
+                    <p>O projeto foi desenvolvido com o objetivo de aplicar, na prática, os conceitos de desenvolvedor web, como Python, Flask, banco de dados, autentificação de usuários e CRUD.</p>
+                </div>
+                <div class="botao_espaco">
+                    <a class="botao_conteudo" href="{{ url_for('usuarios.cadastro') }}">Conheça o projeto</a>
+                </div>
+            </div>
+
+            <div class="objetivo">
+                <div class="texto_objetivo">
+                    <h2>Objetivo do projeto</h2>
+                    <div class="linha"></div>
+                    <p>O objetivo do projeto é criar uma aplicação web que permita aos usuários gerenciar suas tarefas de forma eficiente. A aplicação deve permitir que os usuários criem, leiam, atualizem e excluam tarefas.</p>
+                    <h2>O que estou praticando?</h2>
+                    <div class="linha"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards">
+        <div class="conteiner">
+            <div class="card">
+                <div class="imagem_card">
+                    <img src="../static/imagens/backend_img.png" alt="Ícone de backend">
+                </div>
+                <div class="texto_card">
+                    <h2>Backend</h2>
+                    <p>Criação de rotas, sessões, autenticação e regras de acesso.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="imagem_card">
+                    <img src="../static/imagens/banco_de_dados_ing.png" alt="Ícone de banco de dados">
+                </div>
+                <div class="texto_card">
+                    <h2>Banco de dados</h2>
+                    <p>Criação, consulta, alteração e exclusão de dados.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="imagem_card">
+                    <img src="../static/imagens/frontend_img.png" alt="Ícone de frontend">
+                </div>
+                <div class="texto_card">
+                    <h2>Frontend</h2>
+                    <p>Criação de interfaces com HTML e CSS.</p>
+                </div>
+            </div>
+        </div>
+</body>
