@@ -1,7 +1,11 @@
 from flask import Flask
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'Yeshua'  # Chave secreta para sessões
+app.secret_key = os.environ.get('SECRET_KEY')
 
 from config import Config
 from extentions import db
