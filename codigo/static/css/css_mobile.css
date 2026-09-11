@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+@media (max-width: 600px) {
+    .texto_card {
+        width: 80%;
+        margin-left: 40px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .botao {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .caixa_tarefas {
+        width: 80%;
+    }
+
+    .editar , .excluir {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .texto_conteudo h1 {
+        font-size: 25px;
+    }
+}
