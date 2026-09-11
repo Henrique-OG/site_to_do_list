@@ -145,11 +145,14 @@ button:hover {
     border: 1px solid var(--azul_principal);
     text-decoration: none;
     text-align: center;
-    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .opcoes {
-    margin:auto 0;
+    width: 100%;
+    margin: 20px 0 0 0;
+    text-align: left;
+    max-width: 1200px;
 }
 
 .botao:hover {
@@ -389,4 +392,8 @@ button:hover {
     color: var(--texto_secundario);
     line-height: 1.5;
     margin-top: 20px;
+}
+
+.texto {
+    width: 100%;
 }

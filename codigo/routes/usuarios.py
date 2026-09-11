@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, session, url_for, Blueprint
 from models import Usuarios
 from extentions import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 usuarios_bp = Blueprint('usuarios', __name__)
 
@@ -11,6 +12,7 @@ def cadastro():
         nome = request.form['nome']
         email = request.form['email']
         senha = request.form['senha']
+        senha_hash = generate_password_hash(senha)
 
 
         if Usuarios.query.filter((Usuarios.nome_usuario == nome) | (Usuarios.email_usuario == email)).first():
@@ -19,7 +21,7 @@ def cadastro():
         novo_usuario = Usuarios(
             nome_usuario=nome,
             email_usuario=email,
-            senha_usuario=senha
+            senha_usuario=senha_hash
         )
         
         db.session.add(novo_usuario)
@@ -37,7 +39,7 @@ def login():
         senha = request.form['senha']
         usuario = Usuarios.query.filter_by(nome_usuario=nome).first()
 
-        if usuario and usuario.senha_usuario == senha:
+        if usuario and check_password_hash(usuario.senha_usuario, senha):
             session['usuario_id'] = usuario.id
             return redirect(url_for('tarefas.tarefas'))
         else:
