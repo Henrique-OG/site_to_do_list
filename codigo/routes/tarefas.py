@@ -50,18 +50,22 @@ def adicionar_tarefa():
 
     return render_template('adicionar_tarefa.html')
 
-@tarefas_bp.route('/excluir_tarefa/<int:id>')
+@tarefas_bp.route('/excluir_tarefa/<int:id>', methods=['POST'])
 def excluir_tarefa(id):
     if "usuario_id" not in session:
         return redirect(url_for('usuarios.login'))
 
     usuario_id = session['usuario_id']
-    tarefa = Tarefas.query.get(id)
-    if usuario_id == tarefa.usuario_id:
-        db.session.delete(tarefa)
-        db.session.commit() 
-    else:
+    tarefa = Tarefas.query.filter_by(
+        id=id,
+        usuario_id=usuario_id
+    ).first()
+
+    if not tarefa:
         return redirect(url_for('tarefas.tarefas'))
+
+    db.session.delete(tarefa)
+    db.session.commit() 
 
     return redirect(url_for('tarefas.tarefas'))
 
@@ -71,10 +75,13 @@ def editar_tarefa(id):
         return redirect(url_for('usuarios.login'))
 
     usuario_id = session['usuario_id']
-    tarefa = Tarefas.query.get(id)
-    if usuario_id != tarefa.usuario_id:
+    tarefa = Tarefas.query.filter_by(
+        id=id,
+        usuario_id=usuario_id
+    ).first()
+
+    if not tarefa:
         return redirect(url_for('tarefas.tarefas'))
-    
 
     if request.method == 'POST':
         tarefa.tarefa = request.form['tarefa']
@@ -90,15 +97,19 @@ def concluir_tarefa(id):
         return redirect(url_for('usuarios.login'))
 
     usuario_id = session['usuario_id']
-    tarefa = Tarefas.query.get(id)
-    if usuario_id == tarefa.usuario_id:
-        if tarefa.estado == 'pendente':
-            tarefa.estado = 'concluida'
-            db.session.commit()
-        else:
-            tarefa.estado = 'pendente'
-            db.session.commit()
-    else:
+    tarefa = Tarefas.query.filter_by(
+        id=id,
+        usuario_id=usuario_id
+    ).first()
+
+    if not tarefa:
         return redirect(url_for('tarefas.tarefas'))
+
+    if tarefa.estado == 'pendente':
+        tarefa.estado = 'concluida'
+        db.session.commit()
+    else:
+        tarefa.estado = 'pendente'
+        db.session.commit()
 
     return redirect(url_for('tarefas.tarefas'))

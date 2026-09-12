@@ -151,6 +151,7 @@ button:hover {
 .opcoes {
     width: 100%;
     margin: 20px 0 0 0;
+    padding: 5px 20px;
     text-align: left;
     max-width: 1200px;
 }
@@ -213,10 +214,11 @@ button:hover {
 }
 
 .editar, .excluir {
+    margin: auto 0;
     text-decoration: none;
     color: var(--fundo_secundario);
     background-color: var(--azul_botao);
-    padding: 7px;
+    padding: 10px;
     border-radius: 7px;
     margin-right: 10px;
 }
@@ -396,4 +398,5 @@ button:hover {
 
 .texto {
     width: 100%;
+    padding: 0 20px;
 }
